@@ -1,0 +1,40 @@
+version: 0.2
+
+run-as: root
+
+env:
+    parameter-store:
+	DB_NAME: ""
+	DB_HOST: ""
+	DB_USER: ""
+	DB_PASSWD: ""
+
+phases:
+    
+    # Nothing to install 
+    install:
+	commands:
+	    - echo "Installed Packages!!!"
+
+    # Changing configuration in pre-build phase
+    pre_build:
+        commands:
+            - sed -i 's/database_name_here/'$DB_NAME'/' wp-config.php
+            - sed -i 's/username_here/'$DB_USER'/' wp-config.php
+            - sed -i 's/password_here/'$DB_PASSWORD'/' wp-config.php
+            - sed -i 's/localhost/'$DB_HOST'/' wp-config.php
+
+    # Nothing to build
+    build:
+	commands:
+	    - echo "Build Done!!!"
+
+    # Nothing for post build
+    post_build:
+	commands:
+	    - echo "Pre-Build Done!!!"
+
+# Copy all file in current repo to artifact - S3
+artifacts:
+        files:
+           - '**/*'
