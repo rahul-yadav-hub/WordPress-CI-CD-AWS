@@ -4,17 +4,17 @@ run-as: root
 
 env:
     parameter-store:
-	DB_NAME: ""
-	DB_HOST: ""
-	DB_USER: ""
-	DB_PASSWD: ""
+        DB_NAME: "/rahul/DB_NAME"
+        DB_HOST: "/rahul/DB_HOST"
+        DB_USER: "/rahul/DB_USER"
+        DB_PASSWD: "/rahul/DB_PASSWD"
 
 phases:
     
     # Nothing to install 
     install:
-	commands:
-	    - echo "Installed Packages!!!"
+        commands:
+            - echo "Installed Packages!!!"
 
     # Changing configuration in pre-build phase
     pre_build:
@@ -26,13 +26,13 @@ phases:
 
     # Nothing to build
     build:
-	commands:
-	    - echo "Build Done!!!"
+        commands:
+            - echo "Build Done!!!"
 
     # Nothing for post build
     post_build:
-	commands:
-	    - echo "Pre-Build Done!!!"
+        commands:
+            - echo "Pre-Build Done!!!"
 
 # Copy all file in current repo to artifact - S3
 artifacts:
