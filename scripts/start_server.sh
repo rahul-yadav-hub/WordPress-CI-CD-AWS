@@ -1,3 +1,3 @@
 #!/bin/bash
-systemctl start nginx
-systemctl start php7.4-fpm
+sudo systemctl start nginx
+sudo systemctl start php7.4-fpm
