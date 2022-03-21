@@ -81,6 +81,10 @@ $table_prefix = 'wp_';
  */
 define( 'WP_DEBUG', false );
 
+
+define( 'WP_HOME', 'https://rahul-wp.squareops.co.in' );
+define( 'WP_SITEURL', 'https://rahul-wp.squareops.co.in' );
+if (strpos($_SERVER['HTTP_X_FORWARDED_PROTO'], 'https') !== false)   $_SERVER['HTTPS']='on';
 /* Add any custom values between this line and the "stop editing" line. */
 
 
